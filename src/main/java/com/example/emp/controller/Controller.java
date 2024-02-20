@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173/home")
 public class Controller {
 
     public enum SkillAction{
@@ -36,7 +36,7 @@ public class Controller {
     public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
         return new ResponseEntity<>(employeeService.createEmployee(employee), HttpStatus.OK);
     }
-@CrossOrigin
+
     @PostMapping("/get-all")
     public ResponseEntity<List< Employee>> getAll(@RequestParam(value = "pageNumber",defaultValue = "0",required = false) Integer pageNumber,@RequestParam(value = "pageSize",defaultValue = "5",required = false) Integer pageSize ){
         if(pageNumber<0){
